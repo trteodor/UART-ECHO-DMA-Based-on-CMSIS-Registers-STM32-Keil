@@ -217,8 +217,8 @@ ARM Macro Assembler    Page 4
   130 00000000                 EXPORT           Reset_Handler             [WEAK
 ]
   131 00000000                 IMPORT           __main
-  132 00000000         ; IMPORT  SystemInit
-  133 00000000         ;   LDR     R0, =SystemInit
+  132 00000000         ;IMPORT  SystemInit
+  133 00000000         ;                 LDR     R0, =SystemInit
   134 00000000         ;  BLX     R0
   135 00000000 4808            LDR              R0, =__main
   136 00000002 4700            BX               R0
@@ -476,12 +476,12 @@ ARM Macro Assembler    Page 8
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
 ork --depend=.\objects\startup_stm32f10x_md.d -o.\objects\startup_stm32f10x_md.
-o -I.\RTE\Device\STM32F103RB -I.\RTE\_Target_1 -IC:\Users\Teodor\AppData\Local\
-Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include -IC:\Users\Teodor\AppData\Local\Ar
-m\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include --predefine="__UVISION_VERSION 
-SETA 525" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1" --list=.
-\listings\startup_stm32f10x_md.lst RTE\Device\STM32F103RB\startup_stm32f10x_md.
-s
+o -I.\RTE\Compiler -I.\RTE\Device\STM32F103RB -I.\RTE\_Target_1 -IE:\KeilPacks\
+ARM\CMSIS\5.7.0\CMSIS\Core\Include -IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Inclu
+de -IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include --predefine="__UVISIO
+N_VERSION SETA 525" --predefine="_RTE_ SETA 1" --predefine="STM32F10X_MD SETA 1
+" --list=.\listings\startup_stm32f10x_md.lst RTE\Device\STM32F103RB\startup_stm
+32f10x_md.s
 
 
 

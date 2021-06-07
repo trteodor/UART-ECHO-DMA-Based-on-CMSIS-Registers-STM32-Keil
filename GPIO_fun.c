@@ -4,7 +4,7 @@ void tooglePIN(GPIO_TypeDef *GPIOx, Gpio_Ch_st GPIO_Pin)
 {
   uint32_t odr;
   odr = GPIOx->ODR;
-  GPIOx->BSRR = ((odr & GPIO_Pin) << GPIO_NUMBER) | (~odr & GPIO_Pin);
+  GPIOx->BSRR = ((odr & GPIO_Pin) << GPIO_NUMBER) | (~odr & GPIO_Pin); //taki trick
 }
 void GPIO_Pin_Cfg(GPIO_TypeDef * const port, GpioPin_t pin, GpioMode_t mode)
 {

@@ -1,6 +1,9 @@
 #include "USART_UART_DMA.h"
 
 #define ECHO_UA
+
+#define Blocking_exmessage
+
 void TUART_DMA_Receive(UART_DMA_Handle_Td *USARTX, uint8_t *rxBuf, uint16_t size);
 void USARTx_DMA_Config(UART_DMA_Handle_Td *USARTX);
 static void USART_Tr_DMA_CNGG(UART_DMA_Handle_Td *USARTX);
@@ -20,7 +23,7 @@ static const uint8_t CHANNEL_OFFSET_TAB[] =
 void USART_Init(UART_DMA_Handle_Td *USARTX)
 {
 		USARTX->Instance->SR=0;
-		USARTX->Instance->BRR = 279;
+		USARTX->Instance->BRR = 279;  //config baud
 		USARTX->Instance->CR1 = USART_CR1_UE | USART_CR1_TE | USART_CR1_RE | USART_CR1_IDLEIE ;
 		USARTX->Instance->CR3 |= USART_CR3_DMAR | USART_CR3_DMAT;
 }
@@ -101,10 +104,21 @@ static void USART_Tr_DMA_CNGG(UART_DMA_Handle_Td *USARTX)
 
 static void ECHO_UART(UART_DMA_Handle_Td *USARTX)
 {
+	//TODO ... //status or something time to wait and much much other....
+	#ifdef Blocking_exmessage
+	//while(USARTX->State!=Ready);
+	TUART_DMA_Trasmit(USARTX,(uint8_t*) "Otrzymano:");
+	for(volatile uint32_t i=50000; i!=0; i--);
+	#endif
 	USARTX->ubNbDataToTransmit= USARTX->NbofRecData;
 	USARTX->UART_DMA_TX_Buffer=USARTX->UART_DMA_RX_Buffer;
 	USART_Tr_DMA_CNGG(USARTX);
 	TUART_DMA_Receive(USARTX, USARTX->UART_DMA_RX_Buffer, USARTX->NbDataToReceive);			
+	#ifdef Blocking_exmessage
+		//while(USARTX->State!=Ready);
+	for(volatile uint32_t i=50000; i!=0; i--);
+	TUART_DMA_Trasmit(USARTX,(uint8_t*) "\n\nWpiszWiadomosc:");
+	#endif
 }
 
 static  void End_Rec(UART_DMA_Handle_Td *USARTX)
@@ -126,6 +140,7 @@ static void USART_CallBack(UART_DMA_Handle_Td *USARTX)
 			
 			(void) dreg; //micro delay
 			dreg = USARTX->Instance->DR;
+			//TODO -- USART->State=Ready
 			(void) dreg;	//micro delay
 		}
 }

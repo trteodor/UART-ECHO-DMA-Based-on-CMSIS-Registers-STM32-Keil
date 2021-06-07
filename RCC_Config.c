@@ -8,12 +8,12 @@ void PLL_Config64MHZ(void)
   /*If in startup initialize PLL, PLL have be frist deinit
 	I commennted initialization in Startup File so here also;
 	Below, reset to default */
-/*	 RCC->CR |= (uint32_t)0x00000001;
+	 RCC->CR |= (uint32_t)0x00000001;
 			RCC->CFGR &= (uint32_t)0xF8FF0000;
 			RCC->CR &= (uint32_t)0xFEF6FFFF;
 			RCC->CR &= (uint32_t)0xFFFBFFFF;
 			RCC->CFGR &= (uint32_t)0xFF80FFFF;
-			RCC->CIR = 0x009F0000;*/
+			RCC->CIR = 0x009F0000;
 
 	//Set to 64MHz Correctly! :) 
  RCC->CFGR = RCC_CFGR_PLLMULL16 | RCC_CFGR_PPRE1_2;
