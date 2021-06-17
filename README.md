@@ -22,7 +22,3 @@ https://askubuntu.com/questions/831971/what-type-of-sequences-are-escape-sequenc
 
 ![Putty](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/PutyyTests/images/PuttyTests.PNG)
 
-![Visualisation](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/master/images/EchoProgramBasedOnCMSISCMSIS.PNG)
-
-
-
