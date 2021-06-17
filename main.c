@@ -72,16 +72,16 @@ int main(void)
 	
 		USARTx_DMA_Config(&TUART2);
 		TUART_DMA_Trasmit(&TUART2, (uint8_t*)
-		"\nWprowadz swoja wiadomosc do UARTU, program ten dziala jako UART echo\n"		
-		"         ______     _             _____                                     _ 	\n"
-		"        |  ____|   | |           |  __                                     | |	\n"
-		"	| |__   ___| |__   ___   | |__) | __ ___   __ _ _ __ __ _ _ __ ___ | |	\n"
-		"	|  __| / __| '_   / _    |  ___/ '__/ _   / _` | '__/ _` | '_ ` _  | |	\n"
-		"	| |___| (__| | | | (_) | | |   | | | (_) | (_| | | | (_| | | | | | |_|	\n"
-		"	|______ ___|_| |_| ___/  |_|   |_|   ___/  __, |_|   __,_|_| |_| |_(_)	\n"
-    "                                                   __/ |                      		  \n"
-    "                                                  |___/                       		    \n"
-		"WpiszWiadomosc:"
+"\n\n\n\n"
+" +=========+=========+============+========+=========+========+ \n"
+" |  Ten    | Program |   Dziala   |  Jako  |  Uart   |  ECHO  | \n"
+" +=========+=========+============+========+=========+========+ \n"
+" | Polecam | Rowniez | Generator  | Tabel  | Asii    |        | \n"
+" +---------+---------+------------+--------+---------+--------+ \n"
+" | Bardzo  | Latwo   | Sie        | w nim  | Tworzy  | Tabele | \n"
+" +---------+---------+------------+--------+---------+--------+ \n"
+"https://ozh.github.io/ascii-tables/ \n\n\n\r"
+"Wprowadz Swoja Wiadomosc >"
 		 );
 	  TUART_DMA_Receive(&TUART2, rx_BUF, 1655);   //the receiving buffer address must be indicated and listening must be turned on
 			/*This program now saves the received string in the receiving buffer, and after
