@@ -13,3 +13,4 @@ video with this program:
 https://www.youtube.com/watch?v=pu14ABA_2io
 
 ![Visualisation](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/master/images/EchoProgramBasedOnCMSISCMSIS.PNG)
+![Putty](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/PutyyTests/images/PuttyTests.PNG)
