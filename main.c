@@ -122,7 +122,7 @@ while(1)
 		#ifdef AnimTable
 		static uint8_t animActive=0;
 		
-		if(rx_BUF[0]== 0x03 && rx_BUF[1]==0x0D)  //Cntrl + C Click
+		if(rx_BUF[0]== 0x03 && rx_BUF[1]==0x0D)  //Cntrl + C Click (eventually) Confirm by enter
 		{
 			animActive=0;
 		}
