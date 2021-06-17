@@ -1,4 +1,12 @@
 #include "main.h"
+#include "stdio.h"
+#include <string.h>
+
+#define AnimTable
+#ifdef AnimTable
+char AnimTableTab[500];
+int valueTable=100;
+#endif
 
 //License: hmm BeerWare ;) 
 
@@ -72,7 +80,17 @@ int main(void)
 	
 		USARTx_DMA_Config(&TUART2);
 		TUART_DMA_Trasmit(&TUART2, (uint8_t*)
-"\n\n\n\n"
+
+"\033[37m"
+"\e[1;1H\e[2J" //Clear Screen Command! <3 
+"Hello!\n"
+"Change color\n"
+"\033[35m"
+"New Color! \n"
+"Change Color\n"
+"\033[36m"
+"New Kolor!\n"
+"\033[33m \n"
 " +=========+=========+============+========+=========+========+ \n"
 " |  Ten    | Program |   Dziala   |  Jako  |  Uart   |  ECHO  | \n"
 " +=========+=========+============+========+=========+========+ \n"
@@ -80,6 +98,7 @@ int main(void)
 " +---------+---------+------------+--------+---------+--------+ \n"
 " | Bardzo  | Latwo   | Sie        | w nim  | Tworzy  | Tabele | \n"
 " +---------+---------+------------+--------+---------+--------+ \n"
+" \033[37m "
 "https://ozh.github.io/ascii-tables/ \n\n\n\r"
 "Wprowadz Swoja Wiadomosc >"
 		 );
@@ -100,6 +119,43 @@ while(1)
  {
 		if(  (SysTime-zT_LED) > 500)  //SysTick Handler and the Variable SysTime Definded in RCC_Config (its software timer now)
 	{
+		#ifdef AnimTable
+		static uint8_t animActive=0;
+		
+		if(rx_BUF[0]== 0x03 && rx_BUF[1]==0x0D)  //Cntrl + C Click
+		{
+			animActive=0;
+		}
+		if(rx_BUF[0]=='S'){
+			animActive=1;
+		}
+		
+		if(animActive)
+		{
+			static int h=200,m=500,sek=600;
+		
+					sprintf(AnimTableTab,
+										"\e[1;1H\e[2J" //Clear Screen Command! <3 
+							" +===========+=========+ \n"
+							" | Animowana | Tabelka | \n"
+							" +===========+=========+ \n"
+							" | Godzina   | %i    | \n"
+							" +-----------+---------+ \n"
+							" | Minuta    | %i    | \n"
+							" +-----------+---------+ \n"
+							" | Sekunda   | %i    | \n"
+		,h,m,sek);
+									
+		h++;
+		m++;
+		sek++;
+		
+		TUART_DMA_Trasmit(&TUART2, (uint8_t*)AnimTableTab);
+		valueTable++;
+		}
+		#endif
+		
+		
 		zT_LED=SysTime;	
 		if(helper==0)
 		{

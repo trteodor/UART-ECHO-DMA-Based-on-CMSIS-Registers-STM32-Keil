@@ -12,3 +12,5 @@
 .\objects\main.o: main.h
 .\objects\main.o: RCC_Config.h
 .\objects\main.o: GPIO_fun.h
+.\objects\main.o: E:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: E:\Keil\ARM\ARMCC\Bin\..\include\string.h
