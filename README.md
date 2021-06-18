@@ -20,5 +20,5 @@ https://bluesock.org/~willkg/dev/ansi.html
 
 https://askubuntu.com/questions/831971/what-type-of-sequences-are-escape-sequences-starting-with-033
 
-![Putty](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/PutyyTests/images/PuttyTests.PNG)
+![Putty](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/master/images/DynamicTables.PNG)
 
