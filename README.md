@@ -12,23 +12,23 @@ video with this program:
 
 https://www.youtube.com/watch?v=pu14ABA_2io
 
-*EmbeddedPrintf:
+* EmbeddedPrintf:
 
 https://github.com/mpaland/printf
 
-*Dynamic Table:
+* Dynamic Table:
 
 https://github.com/eitanmi/contables
 
-*ASCII Table Generator:
+* ASCII Table Generator:
 
 https://ozh.github.io/ascii-tables/
 
-*ASCII Art Generator:
+* ASCII Art Generator:
 
 https://patorjk.com/software/taag/#p=display&f=Big&t=Type%20Something%20
 
-*Escape sequences:   -- To change colors, clear console and other
+* Escape sequences:   -- To change colors, clear console and other
 
 https://bluesock.org/~willkg/dev/ansi.html
 
