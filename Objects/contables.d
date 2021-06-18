@@ -1,0 +1,11 @@
+.\objects\contables.o: contables.c
+.\objects\contables.o: llist.h
+.\objects\contables.o: E:\Keil\ARM\ARMCC\Bin\..\include\assert.h
+.\objects\contables.o: contable.h
+.\objects\contables.o: E:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\contables.o: E:\Keil\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\contables.o: E:\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\objects\contables.o: E:\Keil\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\contables.o: printf.h
+.\objects\contables.o: E:\Keil\ARM\ARMCC\Bin\..\include\stddef.h
+.\objects\contables.o: PrintToBuf.h

@@ -3,6 +3,19 @@
 #define __USART_UART_DMA_H__
 #include "main.h"
 
+#define PRIGROUP_16G_0S ((const uint32_t) 0x03)
+#define PRIGROUP_8G_2S ((const uint32_t) 0x04)
+#define PRIGROUP_4G_4S ((const uint32_t) 0x05)
+#define PRIGROUP_2G_8S ((const uint32_t) 0x06)
+#define PRIGROUP_0G_16S ((const uint32_t) 0x07)
+
+
+typedef enum {
+Ready,
+Busy,
+}UART_St;
+
+
 typedef struct __UART_DMA_Handle_Td
 {
 	USART_TypeDef     		  *Instance;
@@ -19,7 +32,7 @@ typedef struct __UART_DMA_Handle_Td
 	uint32_t NbDataToReceive;
 	uint32_t NbofRecData;
 	uint8_t ECHO_Mode;
-	
+	UART_St State;
 
 }UART_DMA_Handle_Td;;
 

@@ -1,8 +1,13 @@
 #include "USART_UART_DMA.h"
-
 #define ECHO_UA
-
 #define Blocking_exmessage
+
+
+/*
+It's rly simple implementation but here is rly much error's i know how to repair it, but time...
+*/
+
+volatile UART_DMA_Handle_Td *UART2HandlerPointer;
 
 void TUART_DMA_Receive(UART_DMA_Handle_Td *USARTX, uint8_t *rxBuf, uint16_t size);
 void USARTx_DMA_Config(UART_DMA_Handle_Td *USARTX);
@@ -35,6 +40,7 @@ void USARTx_DMA_Config(UART_DMA_Handle_Td *USARTX)
 	}
 		if(USARTX->Instance == USART2)
 	{
+		UART2HandlerPointer=USARTX;
 		RCC->APB1ENR |= RCC_APB1ENR_USART2EN;  //Enable USART2 periph
 	}
 		if(USARTX->Instance == USART3)
@@ -50,13 +56,24 @@ void USARTx_DMA_Config(UART_DMA_Handle_Td *USARTX)
 		//DMA Enable
 		RCC->AHBENR |= RCC_AHBENR_DMA1EN;
 	
-		NVIC_EnableIRQ(DMA1_Channel6_IRQn);
-		NVIC_EnableIRQ(DMA1_Channel7_IRQn);
-		NVIC_EnableIRQ(USART2_IRQn);
+	
+	
+					uint32_t prio;
+				 prio = NVIC_EncodePriority(PRIGROUP_4G_4S, 3, 0);
+				 NVIC_SetPriority(DMA1_Channel6_IRQn, prio);
+
+				prio = NVIC_EncodePriority(PRIGROUP_4G_4S, 1, 0);
+				 NVIC_SetPriority(DMA1_Channel7_IRQn, prio);
+				NVIC_EnableIRQ(DMA1_Channel7_IRQn);
+	
+					prio = NVIC_EncodePriority(PRIGROUP_4G_4S, 3, 0);
+				 NVIC_SetPriority(USART2_IRQn, prio);
+				NVIC_EnableIRQ(USART2_IRQn);
 }
 
 void TUART_DMA_Trasmit(UART_DMA_Handle_Td *USARTX, uint8_t *txBuf)
 {
+		while(USARTX->State!=Ready);
 	//But in this option i can't send the '\0' Mark
 		uint16_t Lsize;
 		Lsize=0;
@@ -91,6 +108,8 @@ void TUART_DMA_Receive(UART_DMA_Handle_Td *USARTX, uint8_t *rxBuf, uint16_t size
 
 static void USART_Tr_DMA_CNGG(UART_DMA_Handle_Td *USARTX)
 {
+	UART2HandlerPointer->State=Busy;
+	
 	((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMA1 + CHANNEL_OFFSET_TAB[ USARTX->UART_DMA_TX_CHANNEL - 1])))->CCR=0;
 	((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMA1 + CHANNEL_OFFSET_TAB[ USARTX->UART_DMA_TX_CHANNEL - 1])))->CPAR = (uint32_t)&USARTX->Instance->DR;
 	((DMA_Channel_TypeDef *)((uint32_t)((uint32_t)DMA1 + CHANNEL_OFFSET_TAB[ USARTX->UART_DMA_TX_CHANNEL - 1])))->CMAR = (uint32_t) USARTX->UART_DMA_TX_Buffer;
@@ -104,10 +123,11 @@ static void USART_Tr_DMA_CNGG(UART_DMA_Handle_Td *USARTX)
 
 static void ECHO_UART(UART_DMA_Handle_Td *USARTX)
 {
-	//TODO ... //status or something time to wait and much much other....
+	//TODO ... another beyond the innteruppt, example - machine state or something
 	#ifdef Blocking_exmessage
-	//while(USARTX->State!=Ready);
+	//
 	TUART_DMA_Trasmit(USARTX,(uint8_t*) "Otrzymano:");
+	while(USARTX->State!=Ready);
 	for(volatile uint32_t i=50000; i!=0; i--);
 	#endif
 	USARTX->ubNbDataToTransmit= USARTX->NbofRecData;
@@ -115,9 +135,9 @@ static void ECHO_UART(UART_DMA_Handle_Td *USARTX)
 	USART_Tr_DMA_CNGG(USARTX);
 	TUART_DMA_Receive(USARTX, USARTX->UART_DMA_RX_Buffer, USARTX->NbDataToReceive);			
 	#ifdef Blocking_exmessage
-		//while(USARTX->State!=Ready);
+		while(USARTX->State!=Ready);
 	for(volatile uint32_t i=50000; i!=0; i--);
-	TUART_DMA_Trasmit(USARTX,(uint8_t*) "\n\nWpiszWiadomosc:");
+	TUART_DMA_Trasmit(USARTX,(uint8_t*) "\nWpiszWiadomosc:");
 	#endif
 }
 
@@ -149,6 +169,7 @@ void DMA1_Channel7_IRQHandler()   //USART2_TX_DMA_Channel (HARDWARE)
 {
 				if(DMA1->ISR & DMA_ISR_TCIF7)
 	{	
+		UART2HandlerPointer->State=Ready;
 		DMA1->IFCR = DMA_IFCR_CTCIF7 | DMA_IFCR_CHTIF7 | DMA_IFCR_CGIF7; //Clear intr flag
 		// In the line above the register reference -modification required for others USART
 	}

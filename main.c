@@ -1,6 +1,13 @@
 #include "main.h"
 #include "stdio.h"
 #include <string.h>
+#include "contable.h"
+
+#define PRIGROUP_16G_0S ((const uint32_t) 0x03)
+#define PRIGROUP_8G_2S ((const uint32_t) 0x04)
+#define PRIGROUP_4G_4S ((const uint32_t) 0x05)
+#define PRIGROUP_2G_8S ((const uint32_t) 0x06)
+#define PRIGROUP_0G_16S ((const uint32_t) 0x07)
 
 #define AnimTable
 #ifdef AnimTable
@@ -8,29 +15,15 @@ char AnimTableTab[500];
 int valueTable=100;
 #endif
 
+
+
+
+/*
+I'am only showing here how to develop more advanced application with terminal 
+I Create it only to improve my programming skills ;) 
+*/
+
 //License: hmm BeerWare ;) 
-
-// Copyright (c) 2021 Teodor Rosolowski
-// trteodor@gmail.com
-
-/* Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
 
 #define LED1_SET     GPIOA->GPIO_ODR_ODR1=1;   //funkcja z argumentami ktore ustawia diode
 #define LED1_RESET 	 GPIOA->GPIO_ODR_ODR1=0;
@@ -49,13 +42,22 @@ void TIM1_Cnf()   //timer on 500ms
 		TIM1->ARR = 1000; //config on 100ms interrupt
 	TIM1->DIER |= TIM_DIER_UIE;
 		TIM1->CR1 |= TIM_CR1_CEN;	
-		NVIC_EnableIRQ(TIM1_UP_IRQn);
+
+				NVIC_EnableIRQ(TIM1_UP_IRQn);
+	
 }
 #pragma arm section
 
 int main(void) 
 {
 	//Frist config the PLL
+
+	NVIC_SetPriorityGrouping(PRIGROUP_4G_4S);
+
+						uint32_t prio;
+				 prio = NVIC_EncodePriority(PRIGROUP_4G_4S, 0, 0);
+				 NVIC_SetPriority(SysTick_IRQn, prio);
+	
 	PLL_Config64MHZ();
 	//SysTick
 	SysTick_Config(64000/8);
@@ -80,28 +82,46 @@ int main(void)
 	
 		USARTx_DMA_Config(&TUART2);
 		TUART_DMA_Trasmit(&TUART2, (uint8_t*)
+													"\033[37m"  //Set White Color
+													"\e[1;1H\e[2J" //Clear Screen Command! <3 
+													"Hello!\n"
+													"Change color\n"
+													"\033[35m"  //Set Purple
+													"New Color! \n"
+													"Change Color\n"
+													"\033[36m" //Set Cyan
+													"New Kolor!\n"
+													"\033[33m \n" //Set Yellow
+													"Static Table\n"
+													" +=========+=========+============+========+=========+========+ \n"
+													" |  Ten    | Program |   Dziala   |  Jako  |  Uart   |  ECHO  | \n"
+													" +=========+=========+============+========+=========+========+ \n"
+													" | Polecam | Rowniez | Generator  | Tabel  | Asii    |        | \n"
+													" +---------+---------+------------+--------+---------+--------+ \n"
+													" | Bardzo  | Latwo   | Sie        | w nim  | Tworzy  | Tabele | \n"
+													" +---------+---------+------------+--------+---------+--------+ \n"
+													" \033[37m " //Set White
+													"https://ozh.github.io/ascii-tables/ \n"
+													"Dynamic Table: \n"
+													);
+													
+											con_table tbl;
+											contable_init(&tbl);
 
-"\033[37m"
-"\e[1;1H\e[2J" //Clear Screen Command! <3 
-"Hello!\n"
-"Change color\n"
-"\033[35m"
-"New Color! \n"
-"Change Color\n"
-"\033[36m"
-"New Kolor!\n"
-"\033[33m \n"
-" +=========+=========+============+========+=========+========+ \n"
-" |  Ten    | Program |   Dziala   |  Jako  |  Uart   |  ECHO  | \n"
-" +=========+=========+============+========+=========+========+ \n"
-" | Polecam | Rowniez | Generator  | Tabel  | Asii    |        | \n"
-" +---------+---------+------------+--------+---------+--------+ \n"
-" | Bardzo  | Latwo   | Sie        | w nim  | Tworzy  | Tabele | \n"
-" +---------+---------+------------+--------+---------+--------+ \n"
-" \033[37m "
-"https://ozh.github.io/ascii-tables/ \n\n\n\r"
-"Wprowadz Swoja Wiadomosc >"
-		 );
+											contable_add_column(&tbl, "col a", contable_string, 10); // Add decimal column
+											contable_add_column(&tbl, "col b", contable_string, 16);  // Add string column
+											contable_add_column(&tbl, "col c", contable_decimal, 12); // Add decimal column
+
+											contable_print(&tbl, "%d%s%d", "ROFL", "Pieknie", 116);
+											contable_print(&tbl, "%d%s%d", "WWOW", "SUPER", 15);
+											contable_print(&tbl, "%d%s%d", "DZIALA", "string c", 12);
+											contable_destroy(&tbl, true);
+													
+													
+													
+		TUART_DMA_Trasmit(&TUART2, (uint8_t*)									
+													"\nWprowadz Swoja Wiadomosc (Program Dziala Jako Echo)>" );
+ 
 	  TUART_DMA_Receive(&TUART2, rx_BUF, 1655);   //the receiving buffer address must be indicated and listening must be turned on
 			/*This program now saves the received string in the receiving buffer, and after
 			detecting the end of the transmission by the IDLE flag, returns the received message back to the sender */
@@ -119,7 +139,7 @@ while(1)
  {
 		if(  (SysTime-zT_LED) > 500)  //SysTick Handler and the Variable SysTime Definded in RCC_Config (its software timer now)
 	{
-		#ifdef AnimTable
+		#ifdef AnimTable  				//feature test
 		static uint8_t animActive=0;
 		
 		if(rx_BUF[0]== 0x03 && rx_BUF[1]==0x0D)  //Cntrl + C Click (eventually) Confirm by enter

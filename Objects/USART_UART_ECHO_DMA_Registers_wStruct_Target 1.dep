@@ -1,5 +1,5 @@
 Dependencies for Project 'USART_UART_ECHO_DMA_Registers_wStruct', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x60CBC0EE)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\main.c)(0x60CD0F7E)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (main.h)(0x60897B53)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
 I (.\RTE\_Target_1\RTE_Components.h)(0x60B7C60A)
@@ -9,13 +9,15 @@ I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
-I (USART_UART_DMA.h)(0x60897B53)
+I (USART_UART_DMA.h)(0x60CCC3CD)
 I (RCC_Config.h)(0x60897B53)
 I (GPIO_fun.h)(0x60897B53)
 I (E:\Keil\ARM\ARMCC\include\stdio.h)(0x5E8E9122)
 I (E:\Keil\ARM\ARMCC\include\string.h)(0x5E8E9122)
-F (.\USART_UART_DMA.c)(0x60CBBD86)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\usart_uart_dma.o --omf_browse .\objects\usart_uart_dma.crf --depend .\objects\usart_uart_dma.d)
-I (USART_UART_DMA.h)(0x60897B53)
+I (contable.h)(0x5F8976A8)
+I (E:\Keil\ARM\ARMCC\include\stdbool.h)(0x5E8E9122)
+F (.\USART_UART_DMA.c)(0x60CD0331)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\usart_uart_dma.o --omf_browse .\objects\usart_uart_dma.crf --depend .\objects\usart_uart_dma.d)
+I (USART_UART_DMA.h)(0x60CCC3CD)
 I (main.h)(0x60897B53)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
 I (.\RTE\_Target_1\RTE_Components.h)(0x60B7C60A)
@@ -27,7 +29,7 @@ I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
 I (RCC_Config.h)(0x60897B53)
 I (GPIO_fun.h)(0x60897B53)
-F (.\RCC_Config.c)(0x60B7BB8F)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\rcc_config.o --omf_browse .\objects\rcc_config.crf --depend .\objects\rcc_config.d)
+F (.\RCC_Config.c)(0x60B7BB8F)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\rcc_config.o --omf_browse .\objects\rcc_config.crf --depend .\objects\rcc_config.d)
 I (RCC_Config.h)(0x60897B53)
 I (main.h)(0x60897B53)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
@@ -38,9 +40,9 @@ I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
-I (USART_UART_DMA.h)(0x60897B53)
+I (USART_UART_DMA.h)(0x60CCC3CD)
 I (GPIO_fun.h)(0x60897B53)
-F (.\GPIO_fun.c)(0x60AD61E1)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\gpio_fun.o --omf_browse .\objects\gpio_fun.crf --depend .\objects\gpio_fun.d)
+F (.\GPIO_fun.c)(0x60AD61E1)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\gpio_fun.o --omf_browse .\objects\gpio_fun.crf --depend .\objects\gpio_fun.d)
 I (GPIO_fun.h)(0x60897B53)
 I (main.h)(0x60897B53)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
@@ -51,13 +53,49 @@ I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
-I (USART_UART_DMA.h)(0x60897B53)
+I (USART_UART_DMA.h)(0x60CCC3CD)
 I (RCC_Config.h)(0x60897B53)
 F (.\main.h)(0x60897B53)()
-F (.\USART_UART_DMA.h)(0x60897B53)()
+F (.\USART_UART_DMA.h)(0x60CCC3CD)()
 F (.\RCC_Config.h)(0x60897B53)()
 F (.\GPIO_fun.h)(0x60897B53)()
-F (E:\KeilPacks\Keil\ARM_Compiler\1.6.3\Source\EventRecorder.c)(0x5B8FA4DE)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\eventrecorder.o --omf_browse .\objects\eventrecorder.crf --depend .\objects\eventrecorder.d)
+F (.\contables.c)(0x60CD0D5C)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\contables.o --omf_browse .\objects\contables.crf --depend .\objects\contables.d)
+I (llist.h)(0x5F8976A8)
+I (E:\Keil\ARM\ARMCC\include\assert.h)(0x5E8E9122)
+I (contable.h)(0x5F8976A8)
+I (E:\Keil\ARM\ARMCC\include\stdbool.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\stdarg.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\string.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\stdlib.h)(0x5E8E9122)
+I (printf.h)(0x5E0CD400)
+I (E:\Keil\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
+I (PrintToBuf.h)(0x60CD09AF)
+F (.\PrintToBuf.c)(0x60CD0E33)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\printtobuf.o --omf_browse .\objects\printtobuf.crf --depend .\objects\printtobuf.d)
+I (PrintToBuf.h)(0x60CD09AF)
+I (printf.h)(0x5E0CD400)
+I (E:\Keil\ARM\ARMCC\include\stdarg.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
+I (USART_UART_DMA.h)(0x60CCC3CD)
+I (main.h)(0x60897B53)
+I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
+I (.\RTE\_Target_1\RTE_Components.h)(0x60B7C60A)
+I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F2582)
+I (E:\Keil\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
+I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_version.h)(0x5E8F2582)
+I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_compiler.h)(0x5E835B22)
+I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\cmsis_armcc.h)(0x5E8F2582)
+I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\system_stm32f10x.h)(0x58258CCC)
+I (RCC_Config.h)(0x60897B53)
+I (GPIO_fun.h)(0x60897B53)
+F (.\PrintToBuf.h)(0x60CD09AF)()
+F (.\printf.c)(0x5E0CD400)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\printf.o --omf_browse .\objects\printf.crf --depend .\objects\printf.d)
+I (E:\Keil\ARM\ARMCC\include\stdbool.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\stdint.h)(0x5E8E9122)
+I (printf.h)(0x5E0CD400)
+I (E:\Keil\ARM\ARMCC\include\stdarg.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\stddef.h)(0x5E8E9122)
+I (E:\Keil\ARM\ARMCC\include\float.h)(0x5E8E9122)
+F (E:\KeilPacks\Keil\ARM_Compiler\1.6.3\Source\EventRecorder.c)(0x5B8FA4DE)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\eventrecorder.o --omf_browse .\objects\eventrecorder.crf --depend .\objects\eventrecorder.d)
 I (.\RTE\_Target_1\RTE_Components.h)(0x60B7C60A)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F2582)
@@ -72,7 +110,7 @@ I (.\RTE\Compiler\EventRecorderConf.h)(0x5E6F7D4C)
 F (RTE\Compiler\EventRecorderConf.h)(0x5E6F7D4C)()
 F (RTE\Device\STM32F103RB\RTE_Device.h)(0x60897B53)()
 F (RTE\Device\STM32F103RB\startup_stm32f10x_md.s)(0x60B764A4)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include--pd "__UVISION_VERSION SETA 525" --pd "_RTE_ SETA 1" --pd "STM32F10X_MD SETA 1"--list .\listings\startup_stm32f10x_md.lst --xref -o .\objects\startup_stm32f10x_md.o --depend .\objects\startup_stm32f10x_md.d)
-F (RTE\Device\STM32F103RB\system_stm32f10x.c)(0x60897B53)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
+F (RTE\Device\STM32F103RB\system_stm32f10x.c)(0x60897B53)(--c99 --gnu -c --cpu Cortex-M3 -g -O0 --apcs=interwork --split_sections -I ..\USART_UART_ECHO_DMA_Registers_wStruct-I.\RTE\Compiler-I.\RTE\Device\STM32F103RB-I.\RTE\_Target_1-IE:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include-IE:\KeilPacks\Keil\ARM_Compiler\1.6.3\Include-IE:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="525" -D_RTE_ -DSTM32F10X_MD-o .\objects\system_stm32f10x.o --omf_browse .\objects\system_stm32f10x.crf --depend .\objects\system_stm32f10x.d)
 I (E:\KeilPacks\Keil\STM32F1xx_DFP\2.3.0\Device\Include\stm32f10x.h)(0x58258CCC)
 I (.\RTE\_Target_1\RTE_Components.h)(0x60B7C60A)
 I (E:\KeilPacks\ARM\CMSIS\5.7.0\CMSIS\Core\Include\core_cm3.h)(0x5E8F2582)

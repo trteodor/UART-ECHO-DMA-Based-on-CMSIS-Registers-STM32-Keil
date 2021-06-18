@@ -14,3 +14,5 @@
 .\objects\main.o: GPIO_fun.h
 .\objects\main.o: E:\Keil\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: E:\Keil\ARM\ARMCC\Bin\..\include\string.h
+.\objects\main.o: contable.h
+.\objects\main.o: E:\Keil\ARM\ARMCC\Bin\..\include\stdbool.h

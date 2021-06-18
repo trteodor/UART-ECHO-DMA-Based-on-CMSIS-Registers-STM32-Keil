@@ -337,7 +337,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>..\USART_UART_ECHO_DMA_Registers_wStruct</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -420,6 +420,26 @@
               <FileName>GPIO_fun.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\GPIO_fun.h</FilePath>
+            </File>
+            <File>
+              <FileName>contables.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\contables.c</FilePath>
+            </File>
+            <File>
+              <FileName>PrintToBuf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\PrintToBuf.c</FilePath>
+            </File>
+            <File>
+              <FileName>PrintToBuf.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\PrintToBuf.h</FilePath>
+            </File>
+            <File>
+              <FileName>printf.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\printf.c</FilePath>
             </File>
           </Files>
         </Group>
