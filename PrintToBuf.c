@@ -20,7 +20,7 @@ void PrintfToBuf(char *String)
 void _putchar(char character)
 {
   TUART_DMA_Trasmit(&TUART2,(uint8_t*)&character);
-for(shortblocke=1000; shortblocke; shortblocke--){};
+	for(shortblocke=1000; shortblocke; shortblocke--){}; //anyway veryfast soultion ;) but also fatal :D 
 }
 
 
