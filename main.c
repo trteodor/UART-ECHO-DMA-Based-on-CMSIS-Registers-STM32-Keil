@@ -103,6 +103,7 @@ int main(void)
 													" \033[37m " //Set White
 													"https://ozh.github.io/ascii-tables/ \n"
 													"Dynamic Table: \n"
+													"\033[36m"
 													);
 													
 											con_table tbl;
@@ -119,7 +120,8 @@ int main(void)
 													
 													
 													
-		TUART_DMA_Trasmit(&TUART2, (uint8_t*)									
+		TUART_DMA_Trasmit(&TUART2, (uint8_t*)	
+													"\033[37m"
 													"\nWprowadz Swoja Wiadomosc (Program Dziala Jako Echo)>" );
  
 	  TUART_DMA_Receive(&TUART2, rx_BUF, 1655);   //the receiving buffer address must be indicated and listening must be turned on
