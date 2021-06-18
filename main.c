@@ -140,44 +140,7 @@ int main(void)
 while(1)
  {
 		if(  (SysTime-zT_LED) > 500)  //SysTick Handler and the Variable SysTime Definded in RCC_Config (its software timer now)
-	{
-		#ifdef AnimTable  				//feature test
-		static uint8_t animActive=0;
-		
-		if(rx_BUF[0]== 0x03 && rx_BUF[1]==0x0D)  //Cntrl + C Click (eventually) Confirm by enter
-		{
-			animActive=0;
-		}
-		if(rx_BUF[0]=='S'){
-			animActive=1;
-		}
-		
-		if(animActive)
-		{
-			static int h=200,m=500,sek=600;
-		
-					sprintf(AnimTableTab,
-										"\e[1;1H\e[2J" //Clear Screen Command! <3 
-							" +===========+=========+ \n"
-							" | Animowana | Tabelka | \n"
-							" +===========+=========+ \n"
-							" | Godzina   | %i    | \n"
-							" +-----------+---------+ \n"
-							" | Minuta    | %i    | \n"
-							" +-----------+---------+ \n"
-							" | Sekunda   | %i    | \n"
-		,h,m,sek);
-									
-		h++;
-		m++;
-		sek++;
-		
-		TUART_DMA_Trasmit(&TUART2, (uint8_t*)AnimTableTab);
-		valueTable++;
-		}
-		#endif
-		
-		
+	{		
 		zT_LED=SysTime;	
 		if(helper==0)
 		{
