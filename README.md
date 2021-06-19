@@ -25,7 +25,7 @@ https://www.youtube.com/watch?v=pu14ABA_2io
 
 ![Putty](https://github.com/trteodor/UART-ECHO-DMA-Based-on-CMSIS-Registers-STM32-Keil/blob/master/images/DynamicTables.PNG)
 
-* EmbeddedPrintf:
+* Printf for embedded systems:
 
 https://github.com/mpaland/printf
 
